@@ -13,3 +13,8 @@ export const typeOrmConfig:TypeOrmModuleOptions = {
   entities: [path.resolve(__dirname, '..')+ "/entity/**/*.entity{.ts,.js}"],
   synchronize: true
 }
+
+export const redisConfig = {
+  host: 'localhost', // Redis 主机
+  port: 6379, // Redis 端口
+}

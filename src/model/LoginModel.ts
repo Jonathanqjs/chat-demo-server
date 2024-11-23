@@ -3,6 +3,7 @@ import { Request } from 'express';
 import { Util } from 'src/util/util';
 import { UserEntity } from '../entity/User.entity';
 import Redis from 'ioredis';
+import { redisConfig } from 'src/config/config';
 
 export class LoginModel {
   private static instance: LoginModel;
@@ -11,10 +12,7 @@ export class LoginModel {
   public currentUserInfo: UserEntity;
   private expireTime = 60 * 60 * 24 * 7;
   private constructor() {
-    this.redisClient = new Redis({
-      host: 'localhost', // Redis 主机
-      port: 6379, // Redis 端口
-    });
+    this.redisClient = new Redis(redisConfig);
   }
 
   // 获取单例实例

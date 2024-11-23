@@ -1,75 +1,59 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Chat Demo Server
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Overview
 
-## Description
+Chat Demo Server is a backend application built using the NestJS framework. It provides essential functionalities for an instant messaging app, including user registration, login, friend management, and real-time messaging. The server is designed with a modular architecture for easy maintenance and scalability.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Features
 
-## Installation
+1. **User Registration and Login**
+   - Users can register and create new accounts.
+   - Login generates a JSON Web Token (JWT) for authentication and stores it in Redis for session management.
 
-```bash
-$ npm install
-```
+2. **Authentication**
+   - JWT tokens are used to protect routes and verify user identities.
 
-## Running the app
+3. **Friend Management**
+   - Users can add friends and manage their friend lists.
 
-```bash
-# development
-$ npm run start
+4. **Real-time Communication**
+   - Supports real-time messaging using WebSocket for both text and image transmission.
+   - Handles message relay and storage for offline message delivery.
 
-# watch mode
-$ npm run start:dev
+5. **Message Storage**
+   - Stores message history in the database for offline synchronization and retrieval.
 
-# production mode
-$ npm run start:prod
-```
+## Environment Setup
 
-## Test
+1. **Requirements**:
+   - **Node.js**: Version >= 16.x
+   - **NestJS**: Framework for backend development
+   - **Redis**: For token storage and session management
+   - **Database**: MySQL for user and message data storage
 
-```bash
-# unit tests
-$ npm run test
+2. **Install Dependencies**:
 
-# e2e tests
-$ npm run test:e2e
+   Run the following command to install all necessary dependencies:
 
-# test coverage
-$ npm run test:cov
-```
+   ```bash
+   npm install
+   ```
 
-## Support
+3. **Configure Environment Variables**:
+Modify the `src/config/config.ts` file to update the configuration.
+   - Database connection settings
+   - Redis connection details
+   - JWT secret key
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+1. **Start the server**:
+  Run the server in development mode:
 
-## Stay in touch
+   ```bash
+   npm run start:dev
+   ```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+    Or in production mode:
 
-## License
-
-  Nest is [MIT licensed](LICENSE).
+   ```bash
+   npm run start:prod
+   ```
